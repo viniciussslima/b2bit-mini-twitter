@@ -1,3 +1,4 @@
+from mmap import PAGESIZE
 from rest_framework import serializers
 
 from .models import Post
@@ -6,4 +7,4 @@ from .models import Post
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
-        fields = ["user", "text"]
+        fields = ["id", "user", "text"]
