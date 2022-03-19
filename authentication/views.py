@@ -1,10 +1,7 @@
 from rest_framework import generics, status
 from rest_framework.permissions import AllowAny
 from django.contrib.auth.hashers import make_password
-from rest_framework_simplejwt.serializers import (
-    TokenObtainPairSerializer,
-    TokenRefreshSerializer,
-)
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework.response import Response
 
 
