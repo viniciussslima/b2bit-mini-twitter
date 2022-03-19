@@ -4,6 +4,7 @@ services:
   postgres:
     image: postgres
     environment:
+      POSTGRES_DB: "mini_twitter"
       POSTGRES_PASSWORD: "password"
     ports:
       - "5432:5432"
