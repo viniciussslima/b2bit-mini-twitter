@@ -43,3 +43,7 @@ Before running the project, it is necessary to install the dependencies, to do t
 ## Run project
 
 `$ poetry run python manage.py runserver`
+
+## Run tests
+
+`$ poetry run python manage.py test`
