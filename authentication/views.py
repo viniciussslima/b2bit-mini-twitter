@@ -1,19 +1,19 @@
-from rest_framework import generics, status
+from rest_framework import generics
 from rest_framework.permissions import AllowAny
-from rest_framework.response import Response
+from django.contrib.auth.hashers import make_password
 
+from .models import User
 from .serializers import RegisterSerializer
 
 
-class RegisterView(generics.GenericAPIView):
+class RegisterView(generics.CreateAPIView):
+    model = User
     serializer_class = RegisterSerializer
     permission_classes = [
         AllowAny,
     ]
 
-    def post(self, request):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
+    def perform_create(self, serializer):
+        password = make_password(self.request.data["password"])
+        serializer.save(password=password)
         serializer.save()
-
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
