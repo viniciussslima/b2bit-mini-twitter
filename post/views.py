@@ -3,6 +3,7 @@ from rest_framework.response import Response
 
 
 from .serializers import PostSerializer
+from .models import Post
 
 
 class PostView(generics.GenericAPIView):
@@ -13,7 +14,11 @@ class PostView(generics.GenericAPIView):
         serializer.is_valid(self)
         serializer.save()
 
-        response = {
-            "text": serializer.data["text"],
-        }
-        return Response(response, status=201)
+        return Response(serializer.data, status=201)
+
+
+class PostListView(generics.ListAPIView):
+    serializer_class = PostSerializer
+
+    def get_queryset(self):
+        return Post.objects.exclude(user=self.request.user.id)
