@@ -8,7 +8,7 @@ from .models import Post
 class CreatePostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
-        fields = ["user", "text"]
+        fields = ["id", "user", "text"]
 
 
 class ListPostSerializer(serializers.ModelSerializer):
