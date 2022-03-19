@@ -20,3 +20,23 @@ def create_user():
     )
 
     return response.data
+
+
+def login_user(user):
+    url = reverse("authentication:login")
+
+    user["password"] = "password"
+
+    response = APIClient().post(
+        url,
+        json.dumps(user),
+        content_type="application/json",
+    )
+
+    return response.data
+
+
+def create_and_login_user():
+    user = create_user()
+
+    return login_user(user)
