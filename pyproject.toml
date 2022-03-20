@@ -4,6 +4,9 @@ version = "0.1.0"
 description = ""
 authors = ["Vinicius Santos <vinicius@b2bit.company>"]
 
+[tool.poetry.scripts]
+manage = "manage:main"
+
 [tool.poetry.dependencies]
 python = "^3.9"
 Django = "^4.0.3"
