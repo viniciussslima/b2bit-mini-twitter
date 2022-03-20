@@ -22,28 +22,23 @@
 - CASE 4: General feed
   The actor must receive, in JSON format, the feed of the last 10 posts.
 
-## Env variables
-
-Create a .env file on the project root folder, use example.env file as a base.
-
-## Install dependencies
-
-Before running the project, it is necessary to install the dependencies, to do that just run:
-
-`$ poetry install`
-
 ## Start database
 
 `$ docker-compose up -d`
 
-## Run migrations
+## Env variables
 
-`$ poetry run python manage.py migrate`
+Create a .env file on the project root folder, use example.env file as a base.
 
 ## Run project
 
-`$ poetry run python manage.py runserver`
-
-## Run tests
-
-`$ poetry run python manage.py test`
+- Install dependencies
+  - `$ poetry install`
+- Start shell with the virtual environment
+  - `$ poetry shell`
+- Run migrations
+  - `$ manage migrate`
+- Run tests
+  - `$ manage test`
+- Start server
+  - `$ manage runserver`
